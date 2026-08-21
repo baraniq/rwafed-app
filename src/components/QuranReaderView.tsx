@@ -492,7 +492,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
         return (
           <>
             {before}
-            <span className="bg-[#D4E2D5] text-[#2D4232] font-bold px-0.5 rounded">{region}</span>
+            <span className="bg-[#D4E2D5] text-black font-bold px-0.5 rounded">{region}</span>
             {after}
           </>
         );
@@ -508,7 +508,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
           <React.Fragment key={i}>
             {part}
             {i < parts.length - 1 && (
-              <span className="bg-[#D4E2D5] text-[#2D4232] font-bold px-0.5 rounded">{q}</span>
+              <span className="bg-[#D4E2D5] text-black font-bold px-0.5 rounded">{q}</span>
             )}
           </React.Fragment>
         ))}
@@ -560,7 +560,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
           </div>
 
           <div className="text-center flex-1">
-            <span className="text-sm font-bold text-[#2D241E] font-serif">صفحة {currentPage}</span>
+            <span className="text-sm font-bold text-black font-serif">صفحة {currentPage}</span>
             {currentSurahsOnPage.length > 0 && (
               <span className="text-[10px] text-[#8C7E6E] block">
                 {currentSurahsOnPage.map((s) => s!.name).join(" - ")}
@@ -594,7 +594,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               <button key={surah.id} type="button" onClick={() => { goToSurah(surah.id); }} className="flex items-center gap-2 p-2 hover:bg-[#F1EFEC] rounded-xl cursor-pointer text-right transition-colors">
                 <span className="w-7 h-7 rounded-lg bg-[#F1EFEC] border border-[#E6E0D8] text-[10px] font-bold text-[#4A5D4E] flex items-center justify-center shrink-0">{surah.id}</span>
                 <div className="min-w-0">
-                  <span className="text-xs font-bold text-[#2D241E] block truncate">{surah.name}</span>
+                  <span className="text-xs font-bold text-black block truncate">{surah.name}</span>
                   <span className="text-[9px] text-[#8C7E6E]">{surah.ayahCount} آية</span>
                 </div>
               </button>
@@ -606,7 +606,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
       {/* Bookmarks List */}
       {showBookmarksList && (
         <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-4 shadow-xs max-h-96 overflow-y-auto space-y-4">
-          <h3 className="text-xs font-bold text-[#2D241E]">العلامات المحفوظة:</h3>
+          <h3 className="text-xs font-bold text-black">العلامات المحفوظة:</h3>
 
           <div>
             <span className="text-[10px] font-bold text-[#8C7E6E]">صفحات المصحف:</span>
@@ -679,7 +679,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               className="w-full pl-10 pr-10 py-2.5 rounded-xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm focus:outline-none focus:border-[#4A5D4E]"
             />
             {searchText && (
-              <button type="button" onClick={() => { setSearchText(""); setSearchResults([]); setHasSearched(false); }} className="absolute left-3 top-1/2 -translate-y-1/2 p-0.5 rounded text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer">
+              <button type="button" onClick={() => { setSearchText(""); setSearchResults([]); setHasSearched(false); }} className="absolute left-3 top-1/2 -translate-y-1/2 p-0.5 rounded text-[#8C7E6E] hover:text-black cursor-pointer">
                 <X className="w-3.5 h-3.5" />
               </button>
             )}
@@ -715,7 +715,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
                         </span>
                         <span className="text-[10px] text-[#8C7E6E]">صفحة {ayah.pageNumber}</span>
                       </div>
-                      <p className="text-base font-serif text-[#1A1A1A] leading-[2] line-clamp-2">
+                      <p className="text-base font-serif text-black leading-[2] line-clamp-2">
                         {highlightText(ayah, searchText)}
                       </p>
                     </button>
@@ -779,7 +779,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
                       </button>
                       <div className="flex-1 min-w-0" onClick={() => openAyahModal(ayah)}>
                         {words && words.length > 0 ? (
-                          <p className="text-xl sm:text-2xl font-serif text-[#1A1A1A] leading-[2.5] text-right cursor-pointer">
+                          <p className="text-xl sm:text-2xl font-serif text-black leading-[2.5] text-right cursor-pointer">
                             {words.map((w, i) => (
                               <span
                                 key={i}
@@ -793,7 +793,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
                             <span className="text-[#4A5D4E] text-base mr-1 opacity-80"> ﴿{ayah.ayahNumber}﴾ </span>
                           </p>
                         ) : (
-                          <p className="text-xl sm:text-2xl font-serif text-[#1A1A1A] leading-[2.5] text-right cursor-pointer">
+                          <p className="text-xl sm:text-2xl font-serif text-black leading-[2.5] text-right cursor-pointer">
                             {ayah.simpleMinimal || ayah.originalText}
                             <span className="text-[#4A5D4E] text-base mr-1 opacity-80"> ﴿{ayah.ayahNumber}﴾ </span>
                           </p>
@@ -824,7 +824,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
                     عرض الآية
                   </button>
                 </div>
-                <p className="text-lg font-serif text-[#1A1A1A] leading-[2.2] text-right">
+                <p className="text-lg font-serif text-black leading-[2.2] text-right">
                   {ayah.originalText || ayah.simpleMinimal}
                 </p>
               </div>
@@ -837,7 +837,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
       <Modal visible={!!selectedAyahModal} onClose={closeAyahModal} title={selectedAyahModal ? `${surahs.find((s) => s.id === selectedAyahModal.idSurah)?.name} - آية ${selectedAyahModal.ayahNumber}` : ""}>
         {selectedAyahModal && (
           <div className="p-5 space-y-4">
-            <p className="text-2xl font-serif text-[#1A1A1A] leading-[2.5] text-right">
+            <p className="text-2xl font-serif text-black leading-[2.5] text-right">
               {selectedAyahModal.originalText || selectedAyahModal.simpleMinimal}
               <span className="text-[#4A5D4E] text-base mr-1 opacity-80"> ﴿{selectedAyahModal.ayahNumber}﴾ </span>
             </p>
@@ -861,7 +861,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               <button
                 type="button"
                 onClick={toggleAyahBookmark}
-                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-bold cursor-pointer transition-colors ${ayahBookmarked ? "bg-[#D4E2D5] text-[#2D4232]" : "bg-[#F1EFEC] text-[#4A5D4E] hover:bg-[#E6E0D8]"}`}
+                className={`flex items-center justify-center gap-2 px-4 py-3 rounded-2xl text-sm font-bold cursor-pointer transition-colors ${ayahBookmarked ? "bg-[#D4E2D5] text-black" : "bg-[#F1EFEC] text-[#4A5D4E] hover:bg-[#E6E0D8]"}`}
               >
                 {ayahBookmarked ? <BookmarkCheck className="w-4 h-4" /> : <Bookmark className="w-4 h-4" />}
                 {ayahBookmarked ? "علامة الآية ✓" : "علامة للآية"}
@@ -876,7 +876,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               </button>
             </div>
             <div className="rounded-2xl bg-[#F9F7F5] border border-[#E6E0D8] p-3 space-y-2">
-              <label className="flex items-center gap-1.5 text-[11px] font-bold text-[#2D241E]">
+              <label className="flex items-center gap-1.5 text-[11px] font-bold text-black">
                 <StickyNote className="w-3.5 h-3.5 text-[#4A5D4E]" />
                 ملاحظتي على الآية:
               </label>
@@ -919,16 +919,16 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               {tafseerModalLoading ? (
                 <div className="text-center py-10 text-[#8C7E6E] text-sm">جاري تحميل التفسير...</div>
               ) : (
-                <div className="whitespace-pre-wrap font-serif text-[#2D241E] leading-[2.2]" style={{ fontSize: `${tafseerFontSize}px` }}>
+                <div className="whitespace-pre-wrap font-serif text-black leading-[2.2]" style={{ fontSize: `${tafseerFontSize}px` }}>
                   {tafseerModalText}
                 </div>
               )}
             </div>
             <div className="p-4 border-t border-[#E6E0D8] shrink-0 flex items-center gap-2">
               <div className="flex items-center rounded-xl bg-white border border-[#E6E0D8] p-0.5 shrink-0">
-                <button type="button" onClick={() => setTafseerFontSize(Math.max(12, tafseerFontSize - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">-A</button>
+                <button type="button" onClick={() => setTafseerFontSize(Math.max(12, tafseerFontSize - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">-A</button>
                 <span className="text-xs px-1.5 text-[#4A5D4E] font-bold">{tafseerFontSize}</span>
-                <button type="button" onClick={() => setTafseerFontSize(Math.min(32, tafseerFontSize + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">+A</button>
+                <button type="button" onClick={() => setTafseerFontSize(Math.min(32, tafseerFontSize + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">+A</button>
               </div>
               <button
                 type="button"
@@ -956,11 +956,11 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
             </div>
             <div className="flex items-start gap-3 p-3 rounded-xl bg-[#F1EFEC]">
               <span className="text-[10px] font-bold text-[#8C7E6E] w-12 shrink-0">النحو:</span>
-              <span className="text-sm font-bold text-[#2D241E] font-serif">{irabHit.word.tr}</span>
+              <span className="text-sm font-bold text-black font-serif">{irabHit.word.tr}</span>
             </div>
             <div className="flex items-start gap-3 p-3 rounded-xl bg-[#F1EFEC]">
               <span className="text-[10px] font-bold text-[#8C7E6E] w-12 shrink-0">المعنى:</span>
-              <span className="text-sm text-[#2D241E]">{irabHit.word.en}</span>
+              <span className="text-sm text-black">{irabHit.word.en}</span>
             </div>
             {loadingIrab && (
               <p className="text-[10px] text-[#8C7E6E] text-center">جاري تحميل بيانات الإعراب...</p>
@@ -969,7 +969,7 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               <button
                 type="button"
                 onClick={toggleWordBookmark}
-                className={`flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-2xl text-[11px] font-bold cursor-pointer transition-colors ${irabHitSaved ? "bg-[#D4E2D5] text-[#2D4232]" : "bg-[#F1EFEC] text-[#4A5D4E] hover:bg-[#E6E0D8]"}`}
+                className={`flex flex-col items-center justify-center gap-1 px-2 py-2.5 rounded-2xl text-[11px] font-bold cursor-pointer transition-colors ${irabHitSaved ? "bg-[#D4E2D5] text-black" : "bg-[#F1EFEC] text-[#4A5D4E] hover:bg-[#E6E0D8]"}`}
               >
                 <Star className={`w-4 h-4 ${irabHitSaved ? "fill-[#4A5D4E]" : ""}`} />
                 {irabHitSaved ? "محفوظة" : "حفظ"}

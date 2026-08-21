@@ -38,7 +38,7 @@ export const UpdateModal: React.FC<UpdateModalProps> = ({ updateInfo, onDismiss 
 
         <div className="p-6 space-y-4">
           <div className="bg-[#F1EFEC] rounded-2xl p-4">
-            <p className="text-sm text-[#2D241E] leading-relaxed whitespace-pre-wrap">
+            <p className="text-sm text-black leading-relaxed whitespace-pre-wrap">
               {updateInfo.message}
             </p>
           </div>

@@ -203,7 +203,7 @@ export const TasbeehView: React.FC<TasbeehViewProps> = ({ showFeedback }) => {
         <button
           type="button"
           onClick={toggleVibration}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E6E0D8] text-[11px] font-bold text-[#8C7E6E] cursor-pointer transition-colors hover:text-[#2D241E]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E6E0D8] text-[11px] font-bold text-[#8C7E6E] cursor-pointer transition-colors hover:text-black"
           aria-pressed={vibration}
         >
           {vibration ? <Vibrate className="w-3.5 h-3.5 text-[#4A5D4E]" /> : <VibrateOff className="w-3.5 h-3.5" />}
@@ -212,7 +212,7 @@ export const TasbeehView: React.FC<TasbeehViewProps> = ({ showFeedback }) => {
         <button
           type="button"
           onClick={toggleSound}
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E6E0D8] text-[11px] font-bold text-[#8C7E6E] cursor-pointer transition-colors hover:text-[#2D241E]"
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white border border-[#E6E0D8] text-[11px] font-bold text-[#8C7E6E] cursor-pointer transition-colors hover:text-black"
           aria-pressed={sound}
         >
           {sound ? <Volume2 className="w-3.5 h-3.5 text-[#4A5D4E]" /> : <VolumeX className="w-3.5 h-3.5" />}
@@ -229,7 +229,7 @@ export const TasbeehView: React.FC<TasbeehViewProps> = ({ showFeedback }) => {
               type="button"
               onClick={() => selectOpenDhikr(d.label, d.target)}
               className={`px-4 py-2 rounded-full text-xs font-bold whitespace-nowrap border transition-all cursor-pointer ${
-                openDhikr === d.label ? "bg-[#4A5D4E] border-[#4A5D4E] text-white" : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-[#2D241E]"
+                openDhikr === d.label ? "bg-[#4A5D4E] border-[#4A5D4E] text-white" : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-black"
               }`}
             >
               {d.label} ({d.target})
@@ -252,7 +252,7 @@ export const TasbeehView: React.FC<TasbeehViewProps> = ({ showFeedback }) => {
                 className={`flex items-center justify-between px-4 py-3 rounded-2xl border transition-all cursor-pointer ${
                   isActive
                     ? "bg-[#4A5D4E] border-[#4A5D4E] text-white shadow-sm"
-                    : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-[#2D241E]"
+                    : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-black"
                 }`}
               >
                 <span className="text-sm font-bold font-serif">{s.dhikr}</span>
@@ -322,8 +322,8 @@ export const TasbeehView: React.FC<TasbeehViewProps> = ({ showFeedback }) => {
       {/* Closing dua / completion message */}
       {closing && count >= currentTarget && (
         <div className="p-5 rounded-2xl bg-[#D4E2D5]/40 border border-[#B8CEBA] text-center space-y-3">
-          <p className="text-base font-bold text-[#2D4232] font-serif">الحمد لله</p>
-          <p className="text-sm text-[#2D4232] leading-relaxed font-serif whitespace-pre-line">{CLOSING_DUA}</p>
+          <p className="text-base font-bold text-black font-serif">الحمد لله</p>
+          <p className="text-sm text-black leading-relaxed font-serif whitespace-pre-line">{CLOSING_DUA}</p>
           <button
             type="button"
             onClick={() => setClosing(false)}

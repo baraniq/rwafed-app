@@ -47,7 +47,7 @@ export const Modal: React.FC<ModalProps> = ({
       {(title || showClose) && (
         <div className="p-4 bg-white border-b border-[#E6E0D8] flex items-center justify-between shrink-0">
           {title && (
-            <span className="text-sm font-bold text-[#2D241E] font-serif">
+            <span className="text-sm font-bold text-black font-serif">
               {title}
             </span>
           )}
@@ -55,7 +55,7 @@ export const Modal: React.FC<ModalProps> = ({
             <button
               type="button"
               onClick={() => { haptic.light(); onClose(); }}
-              className="p-2 rounded-xl text-[#8C7E6E] hover:text-[#2D241E] hover:bg-[#E6E0D8] cursor-pointer transition-colors"
+              className="p-2 rounded-xl text-[#8C7E6E] hover:text-black hover:bg-[#E6E0D8] cursor-pointer transition-colors"
             >
               <X className="w-5 h-5" />
             </button>

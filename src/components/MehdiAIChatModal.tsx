@@ -200,11 +200,11 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
               <Bot className="w-5 h-5" />
             </span>
             <div>
-              <h3 className="text-lg font-bold font-serif text-[#2D241E]">مجيب</h3>
+              <h3 className="text-lg font-bold font-serif text-black">مجيب</h3>
               <p className="text-[11px] text-[#8C7E6E]">المساعد الذكي الموثوق</p>
             </div>
           </div>
-          <button type="button" onClick={onClose} className="p-2 rounded-xl text-[#8C7E6E] hover:text-[#2D241E] hover:bg-[#E6E0D8] transition-colors cursor-pointer">
+          <button type="button" onClick={onClose} className="p-2 rounded-xl text-[#8C7E6E] hover:text-black hover:bg-[#E6E0D8] transition-colors cursor-pointer">
             <X className="w-5 h-5" />
           </button>
         </div>
@@ -216,7 +216,7 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
               <div className={`max-w-[90%] p-4 rounded-2xl text-sm leading-relaxed ${
                 msg.role === "user"
                   ? "bg-[#4A5D4E] text-white rounded-br-md"
-                  : "bg-white border border-[#E6E0D8] text-[#2D241E] rounded-bl-md"
+                  : "bg-white border border-[#E6E0D8] text-black rounded-bl-md"
               }`}>
                 <div className="flex items-start gap-2">
                   {msg.role === "assistant" && <Bot className="w-4 h-4 text-[#4A5D4E] shrink-0 mt-0.5" />}
@@ -263,7 +263,7 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
           <button
             type="button"
             onClick={() => setContext((c) => ({ ...c, open: !c.open }))}
-            className="w-full flex items-center justify-between p-2.5 rounded-xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-[#2D241E] cursor-pointer"
+            className="w-full flex items-center justify-between p-2.5 rounded-xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-black cursor-pointer"
           >
             <span className="flex items-center gap-1.5">
               <BookOpen className="w-3.5 h-3.5 text-[#4A5D4E]" />
@@ -283,7 +283,7 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
                   key={m.id}
                   type="button"
                   onClick={() => setContext((c) => ({ ...c, modeId: m.id }))}
-                  className={`w-full text-right p-2 rounded-lg text-xs cursor-pointer transition-colors ${context.modeId === m.id ? "bg-[#D4E2D5] text-[#2D4232]" : "hover:bg-[#F1EFEC]"}`}
+                  className={`w-full text-right p-2 rounded-lg text-xs cursor-pointer transition-colors ${context.modeId === m.id ? "bg-[#D4E2D5] text-black" : "hover:bg-[#F1EFEC]"}`}
                 >
                   <span className="font-bold">{m.label}</span>
                   <span className="block text-[10px] text-[#8C7E6E]">{m.description}</span>
@@ -297,7 +297,7 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
                       key={s.key}
                       type="button"
                       onClick={() => setContext((c) => ({ ...c, scholarKey: s.key }))}
-                      className={`w-full text-right p-2 rounded-lg text-xs cursor-pointer transition-colors ${context.scholarKey === s.key ? "bg-[#D4E2D5] text-[#2D4232]" : "hover:bg-[#F1EFEC]"}`}
+                      className={`w-full text-right p-2 rounded-lg text-xs cursor-pointer transition-colors ${context.scholarKey === s.key ? "bg-[#D4E2D5] text-black" : "hover:bg-[#F1EFEC]"}`}
                     >
                       {s.name}
                       <span className="block text-[10px] text-[#8C7E6E]">{s.domain}</span>
@@ -318,7 +318,7 @@ export const MehdiAIChatModal: React.FC<MehdiAIChatModalProps> = ({ visible, onC
               onChange={(e) => setInput(e.target.value)}
               onKeyDown={(e) => { if (e.key === "Enter") sendMessage(); }}
               placeholder="اسأل مجيب عن أي شيء..."
-              className="flex-1 px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-[#2D241E] placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E]"
+              className="flex-1 px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-black placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E]"
             />
             <AppButton variant="primary" size="md" icon={<Send className="w-4 h-4" />} onPress={sendMessage} disabled={!input.trim() || isLoading}>
               إرسال

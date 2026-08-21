@@ -199,7 +199,7 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
               <Compass className="w-6 h-6" />
             </span>
             <div>
-              <h2 className="text-2xl font-bold text-[#2D241E] font-serif">استخارة القرآن الكريم</h2>
+              <h2 className="text-2xl font-bold text-black font-serif">استخارة القرآن الكريم</h2>
               <p className="text-xs text-[#8C7E6E]">جدول كشف الاستخارة بالصفحات الفردية من 1 إلى 603 مع بيان النتيجة والنصيحة</p>
             </div>
           </div>
@@ -213,12 +213,12 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
           </div>
         </div>
         {showGuide && (
-          <div className="p-5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs text-[#2D241E] space-y-4 mt-4 leading-relaxed">
+          <div className="p-5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs text-black space-y-4 mt-4 leading-relaxed">
             <h4 className="font-bold text-[#4A5D4E] flex items-center gap-2 text-sm">
               <BookOpen className="w-4 h-4" /> آداب الاستخارة — من سفينة النجاة:
             </h4>
-            <div className="bg-white rounded-2xl p-4 border border-[#E6E0D8] font-serif text-base text-[#2D241E] leading-[2.2] text-justify space-y-3">
-              <ol className="list-decimal list-inside space-y-2 text-[#2D241E] pr-1">
+            <div className="bg-white rounded-2xl p-4 border border-[#E6E0D8] font-serif text-base text-black leading-[2.2] text-justify space-y-3">
+              <ol className="list-decimal list-inside space-y-2 text-black pr-1">
                 <li>اقرأ <strong>سورة التوحيد</strong> (3 مرات).</li>
                 <li>صلِّ على <strong>محمد وآل محمد</strong> (3 مرات).</li>
                 <li>قل: <strong>أستخير الله برحمته خيرةً في عافية</strong> (3 مرات).</li>
@@ -233,8 +233,8 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
 
       <div className="rounded-[32px] bg-white border border-[#E6E0D8] p-6 sm:p-8 shadow-xs space-y-6">
         <div className="space-y-2">
-          <label className="block text-xs font-bold text-[#2D241E]">رقم الصفحة الفردية (1 - 603):</label>
-          <input id="istikhara-page-input" type="number" min="1" max="603" step="2" value={pageInput} onChange={(e) => setPageInput(e.target.value)} placeholder="مثال: 1, 5, 293, 441" className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-[#2D241E] placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E] font-mono" />
+          <label className="block text-xs font-bold text-black">رقم الصفحة الفردية (1 - 603):</label>
+          <input id="istikhara-page-input" type="number" min="1" max="603" step="2" value={pageInput} onChange={(e) => setPageInput(e.target.value)} placeholder="مثال: 1, 5, 293, 441" className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-black placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E] font-mono" />
         </div>
 
         {message && (
@@ -257,7 +257,7 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
               <span className="text-xs font-semibold text-[#8C7E6E]">نتيجة الصفحة {allResults.pageNumber}</span>
               <span className="text-[11px] text-[#4A5D4E] font-bold">اضغط على أي قسم أدناه للتفاعل</span>
             </div>
-            <div className="p-4 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-center font-serif text-lg text-[#2D241E] leading-loose">
+            <div className="p-4 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-center font-serif text-lg text-black leading-loose">
               « {allResults.ayahText} »
             </div>
           </div>
@@ -315,7 +315,7 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
       {showHistory && (
         <div className="rounded-[32px] bg-white border border-[#E6E0D8] p-6 sm:p-8 shadow-xs space-y-5">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+            <h3 className="text-sm font-bold text-black flex items-center gap-2">
               <History className="w-4 h-4 text-[#4A5D4E]" /> سجل الاستخارات ({history.length})
             </h3>
             {history.length > 0 && (
@@ -332,7 +332,7 @@ export const IstikharaView: React.FC<IstikharaViewProps> = ({ showFeedback }) =>
                 <div key={item.id} className="p-4 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] flex items-start justify-between gap-4 text-xs">
                   <div className="space-y-1.5 flex-1">
                     <div className="flex items-center gap-2">
-                      <span className="font-bold text-[#2D241E] text-sm font-serif">{item.purpose || "نية عامة"}</span>
+                      <span className="font-bold text-black text-sm font-serif">{item.purpose || "نية عامة"}</span>
                       <span className="text-[#8C7E6E] font-mono">(ص {item.pageNumber})</span>
                     </div>
                     <p className="text-[#8C7E6E] line-clamp-1">{item.entry.summary}</p>

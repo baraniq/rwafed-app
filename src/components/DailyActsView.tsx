@@ -255,7 +255,7 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
             <Sparkles className="w-5 h-5" />
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[#2D241E] font-serif">أعمال اليوم</h2>
+            <h2 className="text-xl font-bold text-black font-serif">أعمال اليوم</h2>
             <p className="text-xs text-[#8C7E6E]">أعمالك اليومية ومحاسبة النفس</p>
           </div>
         </div>
@@ -284,13 +284,13 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
           <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-bold text-[#2D241E]">أعمال اليوم</h3>
+                <h3 className="text-sm font-bold text-black">أعمال اليوم</h3>
                 <p className="text-[10px] text-[#8C7E6E] mt-0.5">اليوم: {todayName} — اضغط على العمل لقراءته</p>
               </div>
               <button
                 type="button"
                 onClick={resetDaily}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F1EFEC] text-[#8C7E6E] text-xs font-bold hover:text-[#2D241E] cursor-pointer transition-colors"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#F1EFEC] text-[#8C7E6E] text-xs font-bold hover:text-black cursor-pointer transition-colors"
               >
                 <RotateCcw className="w-3.5 h-3.5" /> تصفير
               </button>
@@ -319,7 +319,7 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
                   )}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <div className={`text-sm font-bold ${done ? "text-[#2D4232] line-through" : "text-[#2D241E]"}`}>{act.label}</div>
+                  <div className={`text-sm font-bold ${done ? "text-black line-through" : "text-black"}`}>{act.label}</div>
                   <div className="text-[11px] text-[#8C7E6E]">{act.sub}</div>
                 </div>
                 <button
@@ -343,10 +343,10 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
           <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-4">
             <div className="flex items-center justify-between">
               <div>
-                <h3 className="text-sm font-bold text-[#2D241E]">محاسبة النفس اليومية</h3>
+                <h3 className="text-sm font-bold text-black">محاسبة النفس اليومية</h3>
                 <p className="text-[10px] text-[#8C7E6E] mt-0.5">«حاسبوا أنفسكم قبل أن تحاسبوا»</p>
               </div>
-               <span className="text-xs font-bold px-4 py-2 rounded-full bg-[#D4E2D5] text-[#2D4232]">
+               <span className="text-xs font-bold px-4 py-2 rounded-full bg-[#D4E2D5] text-black">
                  {toNumeral(reflectionCount, numeral)} / {toNumeral(reflectionTotal, numeral)} ({toNumeral(reflectionTotal ? Math.round((reflectionCount / reflectionTotal) * 100) : 0, numeral)}%)
                </span>
             </div>
@@ -360,7 +360,7 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
                   key={item.key}
                   onClick={() => toggleReflection(item.key)}
                   className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
-                    checked ? "bg-[#D4E2D5]/40 border-[#B8CEBA] text-[#2D4232]" : "bg-white border-[#E6E0D8] text-[#2D241E] hover:border-[#D4CEBE]"
+                    checked ? "bg-[#D4E2D5]/40 border-[#B8CEBA] text-black" : "bg-white border-[#E6E0D8] text-black hover:border-[#D4CEBE]"
                   }`}
                 >
                   <span className="shrink-0 text-[#4A5D4E]">
@@ -376,7 +376,7 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
                 key={act.id}
                 onClick={() => toggleCustom(act.id)}
                 className={`p-4 rounded-2xl border transition-all cursor-pointer flex items-center gap-3 ${
-                  act.done ? "bg-[#D4E2D5]/40 border-[#B8CEBA] text-[#2D4232]" : "bg-white border-[#E6E0D8] text-[#2D241E] hover:border-[#D4CEBE]"
+                  act.done ? "bg-[#D4E2D5]/40 border-[#B8CEBA] text-black" : "bg-white border-[#E6E0D8] text-black hover:border-[#D4CEBE]"
                 }`}
               >
                 <span className="shrink-0 text-[#4A5D4E]">
@@ -386,7 +386,7 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
                 <button
                   type="button"
                   onClick={(e) => { e.stopPropagation(); removeCustomAct(act.id); }}
-                  className="shrink-0 p-1 rounded-lg text-[#8C7E6E] hover:text-[#2D241E] hover:bg-[#E6E0D8] cursor-pointer transition-colors"
+                  className="shrink-0 p-1 rounded-lg text-[#8C7E6E] hover:text-black hover:bg-[#E6E0D8] cursor-pointer transition-colors"
                 >
                   <X className="w-3.5 h-3.5" />
                 </button>
@@ -444,10 +444,10 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
           <div className="w-full h-full flex flex-col overflow-hidden" onClick={(e) => e.stopPropagation()}>
             <div className="p-4 sm:p-8 overflow-y-auto flex-1 bg-[#F9F7F5]">
               <div className="text-center space-y-2 pt-2 pb-5">
-                <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-[#2D4232] text-[11px] font-bold">{selectedLabel}</span>
-                <h3 className="text-xl font-bold font-serif text-[#2D241E]">{selectedAct.titleAr}</h3>
+                <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-black text-[11px] font-bold">{selectedLabel}</span>
+                <h3 className="text-xl font-bold font-serif text-black">{selectedAct.titleAr}</h3>
               </div>
-              <div className="text-right font-serif leading-loose text-[#1A1A1A] whitespace-pre-line" style={{ fontSize: `${fontSize}px`, lineHeight: "2.4" }}>
+              <div className="text-right font-serif leading-loose text-black whitespace-pre-line" style={{ fontSize: `${fontSize}px`, lineHeight: "2.4" }}>
                 {actText}
               </div>
             </div>
@@ -461,9 +461,9 @@ export const DailyActsView: React.FC<DailyActsViewProps> = ({ showFeedback }) =>
                   {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />} {copied ? "تم النسخ" : "نسخ"}
                 </button>
                 <div className="flex items-center rounded-xl bg-white border border-[#E6E0D8] p-0.5">
-                  <button type="button" onClick={() => setFontSize((s) => Math.max(14, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">-A</button>
+                  <button type="button" onClick={() => setFontSize((s) => Math.max(14, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">-A</button>
                   <span className="text-xs px-1.5 text-[#4A5D4E] font-bold">{fontSize}</span>
-                  <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">+A</button>
+                  <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">+A</button>
                 </div>
               </div>
               <AppButton variant="primary" size="sm" onPress={() => { setSelectedAct(null); setCopied(false); haptic.light(); }}>إغلاق</AppButton>

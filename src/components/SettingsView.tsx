@@ -260,7 +260,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
             <Settings className="w-5 h-5" />
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[#2D241E] font-serif">الإعدادات</h2>
+            <h2 className="text-xl font-bold text-black font-serif">الإعدادات</h2>
             <p className="text-xs text-[#8C7E6E]">تخصيص التطبيق</p>
           </div>
         </div>
@@ -269,7 +269,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
       {/* المظهر */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
         <button type="button" onClick={() => toggleSection("appearance")} className="w-full flex items-center justify-between cursor-pointer">
-          <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+          <h3 className="text-sm font-bold text-black flex items-center gap-2">
             {settings.darkMode ? <Moon className="w-4 h-4 text-[#4A5D4E]" /> : <Sun className="w-4 h-4 text-[#4A5D4E]" />} المظهر
           </h3>
           {expandedSections.appearance ? <ChevronUp className="w-4 h-4 text-[#8C7E6E]" /> : <ChevronDown className="w-4 h-4 text-[#8C7E6E]" />}
@@ -277,12 +277,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
         {expandedSections.appearance && (
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-[#2D241E]">الوضع الداكن</span>
+              <span className="text-xs text-black">الوضع الداكن</span>
               <Toggle checked={settings.darkMode} onChange={applyDarkMode} />
             </div>
             <div>
               <div className="flex items-center justify-between mb-1">
-                <span className="text-xs text-[#2D241E]">حجم الخط</span>
+                <span className="text-xs text-black">حجم الخط</span>
                 <span className="text-xs text-[#4A5D4E] font-bold">{settings.fontSize}px</span>
               </div>
               <input type="range" min="12" max="24" value={settings.fontSize} onChange={(e) => applyFontSize(parseInt(e.target.value))} className="w-full h-2 rounded-full bg-[#E6E0D8] appearance-none cursor-pointer accent-[#4A5D4E]" />
@@ -294,7 +294,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
       {/* الإشعارات */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
         <button type="button" onClick={() => toggleSection("notifications")} className="w-full flex items-center justify-between cursor-pointer">
-          <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+          <h3 className="text-sm font-bold text-black flex items-center gap-2">
             <Bell className="w-4 h-4 text-[#4A5D4E]" /> الإشعارات
           </h3>
           {expandedSections.notifications ? <ChevronUp className="w-4 h-4 text-[#8C7E6E]" /> : <ChevronDown className="w-4 h-4 text-[#8C7E6E]" />}
@@ -302,17 +302,17 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
         {expandedSections.notifications && (
           <div className="space-y-3 pt-2">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-[#2D241E]">تفعيل الإشعارات</span>
+              <span className="text-xs text-black">تفعيل الإشعارات</span>
               <Toggle checked={settings.notificationsEnabled} onChange={applyNotifications} />
             </div>
             {settings.notificationsEnabled && (
               <>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-[#2D241E]">إشعارات مواقيت الصلاة</span>
+                  <span className="text-xs text-black">إشعارات مواقيت الصلاة</span>
                   <Toggle checked={settings.prayerNotifications} onChange={applyPrayerNotifications} />
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-xs text-[#2D241E]">إشعارات المجتمع</span>
+                  <span className="text-xs text-black">إشعارات المجتمع</span>
                   <Toggle checked={settings.communityNotifications} onChange={applyCommunityNotifications} />
                 </div>
               </>
@@ -324,7 +324,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
       {/* الاهتزاز */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs">
         <div className="flex items-center justify-between">
-          <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+          <h3 className="text-sm font-bold text-black flex items-center gap-2">
             <Vibrate className="w-4 h-4 text-[#4A5D4E]" /> الاهتزاز
           </h3>
           <Toggle checked={settings.hapticEnabled} onChange={applyHaptic} />
@@ -333,7 +333,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* نظام الأرقام */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <Hash className="w-4 h-4 text-[#4A5D4E]" /> نظام الأرقام
         </h3>
         <p className="text-xs text-[#8C7E6E]">
@@ -348,7 +348,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
               className={`flex items-center justify-between px-4 py-3 rounded-2xl border transition-all cursor-pointer ${
                 numeral === opt.key
                   ? "bg-[#4A5D4E] border-[#4A5D4E] text-white"
-                  : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-[#2D241E]"
+                  : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-black"
               }`}
             >
               <span className="text-sm font-bold">{NUMERAL_LABELS[opt.key]}</span>
@@ -360,7 +360,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* نوع الخط */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <Type className="w-4 h-4 text-[#4A5D4E]" /> نوع الخط
         </h3>
         <p className="text-xs text-[#8C7E6E]">
@@ -375,7 +375,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
               className={`w-full text-right p-3 rounded-2xl border transition-all cursor-pointer ${
                 selectedFont === font.id
                   ? "bg-[#4A5D4E] border-[#4A5D4E] text-white"
-                  : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-[#2D241E]"
+                  : "bg-white border-[#E6E0D8] text-[#8C7E6E] hover:text-black"
               }`}
             >
               <span className="text-sm font-bold" style={{ fontFamily: font.family }}>
@@ -391,7 +391,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* تحديد الموقع */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <MapPin className="w-4 h-4 text-[#4A5D4E]" /> تحديد الموقع
         </h3>
         <p className="text-xs text-[#8C7E6E]">
@@ -427,7 +427,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
                 }
               }}
               placeholder="33.3128"
-              className="w-full px-3 py-2 rounded-xl border border-[#E6E0D8] text-sm text-[#2D241E] bg-white outline-none focus:border-[#4A5D4E] transition-colors"
+              className="w-full px-3 py-2 rounded-xl border border-[#E6E0D8] text-sm text-black bg-white outline-none focus:border-[#4A5D4E] transition-colors"
             />
           </div>
           <div>
@@ -445,7 +445,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
                 }
               }}
               placeholder="44.3615"
-              className="w-full px-3 py-2 rounded-xl border border-[#E6E0D8] text-sm text-[#2D241E] bg-white outline-none focus:border-[#4A5D4E] transition-colors"
+              className="w-full px-3 py-2 rounded-xl border border-[#E6E0D8] text-sm text-black bg-white outline-none focus:border-[#4A5D4E] transition-colors"
             />
           </div>
         </div>
@@ -453,7 +453,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* النسخ الاحتياطي */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <Download className="w-4 h-4 text-[#4A5D4E]" /> النسخ الاحتياطي
         </h3>
         <div className="grid grid-cols-2 gap-2">
@@ -482,7 +482,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* حول التطبيق */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <Info className="w-4 h-4 text-[#4A5D4E]" /> حول التطبيق
         </h3>
         <p className="text-xs text-[#8C7E6E] leading-relaxed">
@@ -493,7 +493,7 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
 
       {/* الخصوصية */}
       <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2">
           <ShieldCheck className="w-4 h-4 text-[#4A5D4E]" /> الخصوصية
         </h3>
         <p className="text-xs text-[#8C7E6E] leading-relaxed">

@@ -83,7 +83,7 @@ export function RisalahView({ showFeedback }: Props) {
             </button>
           )}
           <div>
-            <h2 className="text-xl font-bold text-[#2D241E] font-serif">
+            <h2 className="text-xl font-bold text-black font-serif">
               {selectedAuthor !== null ? (currentAuthor?.authorName || "الرسائل") : "الرسائل الفقهية"}
             </h2>
             <p className="text-[10px] text-[#8C7E6E] mt-0.5">
@@ -117,7 +117,7 @@ export function RisalahView({ showFeedback }: Props) {
                   {totalBooks}
                 </span>
                 <div className="flex-1 min-w-0">
-                  <p className="text-sm font-bold text-[#2D241E] group-hover:text-[#4A5D4E] transition-colors truncate">
+                  <p className="text-sm font-bold text-black group-hover:text-[#4A5D4E] transition-colors truncate">
                     {author.authorName}
                   </p>
                   <p className="text-[10px] text-[#8C7E6E]">
@@ -145,7 +145,7 @@ export function RisalahView({ showFeedback }: Props) {
                 <BookOpen className="w-5 h-5" />
               </span>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-bold text-[#2D241E] group-hover:text-[#4A5D4E] transition-colors truncate">
+                <p className="text-sm font-bold text-black group-hover:text-[#4A5D4E] transition-colors truncate">
                   {bk.title}
                 </p>
                 <p className="text-[10px] text-[#8C7E6E]">{bk.sectionsCount} مسألة</p>
@@ -175,7 +175,7 @@ export function RisalahView({ showFeedback }: Props) {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="بحث في المسائل..."
-              className="flex-1 bg-transparent text-sm text-[#2D241E] placeholder:text-[#8C7E6E]/60 outline-none text-right"
+              className="flex-1 bg-transparent text-sm text-black placeholder:text-[#8C7E6E]/60 outline-none text-right"
               dir="rtl"
             />
           </div>
@@ -191,7 +191,7 @@ export function RisalahView({ showFeedback }: Props) {
                 <span className="shrink-0 w-7 h-7 rounded-lg bg-[#F1EFEC] text-[#8C7E6E] text-[10px] font-bold flex items-center justify-center group-hover:bg-[#D4E2D5] group-hover:text-[#4A5D4E] transition-colors">
                   {idx + 1}
                 </span>
-                <p className="flex-1 text-xs font-bold text-[#2D241E] group-hover:text-[#4A5D4E] transition-colors truncate">
+                <p className="flex-1 text-xs font-bold text-black group-hover:text-[#4A5D4E] transition-colors truncate">
                   {section.title}
                 </p>
                 <ChevronLeft className="w-3.5 h-3.5 text-[#8C7E6E] group-hover:text-[#4A5D4E] transition-colors" />
@@ -205,7 +205,7 @@ export function RisalahView({ showFeedback }: Props) {
       {selectedBookId && book && selectedSection !== null && book.sections?.[selectedSection] && (
         <div ref={contentRef} className="space-y-4">
           <div className="flex items-center justify-between bg-[#F1EFEC] rounded-2xl px-4 py-2.5">
-            <span className="text-xs font-bold text-[#2D241E]">
+            <span className="text-xs font-bold text-black">
               {selectedSection + 1} / {filteredSections.length}
             </span>
             <div className="flex items-center gap-2">
@@ -220,7 +220,7 @@ export function RisalahView({ showFeedback }: Props) {
           </div>
 
           {/* Title */}
-          <h3 className="text-lg font-bold text-[#2D241E] font-serif leading-relaxed">
+          <h3 className="text-lg font-bold text-black font-serif leading-relaxed">
             {book.sections[selectedSection].title}
           </h3>
 

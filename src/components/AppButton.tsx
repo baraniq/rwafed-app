@@ -39,9 +39,9 @@ export const AppButton: React.FC<AppButtonProps> = ({
     outline:
       "bg-white hover:bg-[#F1EFEC] active:bg-[#E6E0D8] text-[#4A5D4E] border border-[#E6E0D8] shadow-sm",
     gold:
-      "bg-[#D4E2D5] hover:bg-[#C5D7C6] active:bg-[#B7CBB8] text-[#2D4232] font-semibold border border-[#B8CEBA] shadow-sm",
+      "bg-[#D4E2D5] hover:bg-[#C5D7C6] active:bg-[#B7CBB8] text-black font-semibold border border-[#B8CEBA] shadow-sm",
     ghost:
-      "bg-transparent hover:bg-[#F1EFEC] active:bg-[#E6E0D8] text-[#8C7E6E] hover:text-[#2D241E]",
+      "bg-transparent hover:bg-[#F1EFEC] active:bg-[#E6E0D8] text-[#8C7E6E] hover:text-black",
     danger:
       "bg-rose-600 hover:bg-rose-500 text-white shadow-sm border border-rose-500/30",
   };

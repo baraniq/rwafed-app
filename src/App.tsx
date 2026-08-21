@@ -222,7 +222,7 @@ export default function App() {
         <div className="fixed inset-0 z-20" onClick={() => setSidebarOpen(false)}>
           <div className="absolute inset-0 bg-[#2D241E]/40" />
           <div className="absolute top-0 right-0 w-72 h-full bg-white border-l border-[#E6E0D8] shadow-xl p-5 space-y-3" onClick={(e) => e.stopPropagation()}>
-            <h3 className="text-sm font-bold text-[#2D241E] mb-4">القائمة</h3>
+            <h3 className="text-sm font-bold text-black mb-4">القائمة</h3>
             <button
               type="button"
               onClick={() => { setCurrentView("home"); setSidebarOpen(false); }}
@@ -270,7 +270,7 @@ export default function App() {
         <div className="fixed inset-0 z-40 bg-[#2D241E]/40" onClick={() => setShowNotifications(false)}>
           <div className="absolute bottom-20 left-1/2 -translate-x-1/2 w-80 max-h-[60vh] overflow-y-auto bg-white border border-[#E6E0D8] rounded-3xl shadow-2xl p-3" onClick={(e) => e.stopPropagation()}>
             <div className="flex items-center justify-between mb-2 px-2">
-              <h3 className="text-sm font-bold text-[#2D241E] font-serif">الإشعارات</h3>
+              <h3 className="text-sm font-bold text-black font-serif">الإشعارات</h3>
               {myNotifications.length > 0 && (
                 <button
                   type="button"
@@ -291,7 +291,7 @@ export default function App() {
                     onClick={() => { if (!n.read) markNotificationRead(n.id); }}
                     className={`p-3 rounded-2xl border cursor-pointer transition-colors ${n.read ? "bg-[#F9F7F5] border-[#E6E0D8]" : "bg-[#D4E2D5]/30 border-[#B8CEBA]"}`}
                   >
-                    <p className="text-xs text-[#2D241E] leading-relaxed">{n.message}</p>
+                    <p className="text-xs text-black leading-relaxed">{n.message}</p>
                     <div className="flex items-center justify-between mt-1.5">
                       <span className="text-[10px] text-[#8C7E6E]">{new Date(n.timestamp).toLocaleString("ar-EG")}</span>
                       {!n.read && <span className="text-[10px] text-[#4A5D4E] font-bold flex items-center gap-1"><Check className="w-3 h-3" /> جديد</span>}

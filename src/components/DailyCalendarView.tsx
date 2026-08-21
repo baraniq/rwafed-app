@@ -60,7 +60,7 @@ export const DailyCalendarView: React.FC = () => {
           </span>
           <h4 className="text-sm font-bold text-[#4A5D4E] font-serif">{title}</h4>
         </div>
-        <p className="text-sm text-[#2D241E] leading-relaxed font-serif">{text}</p>
+        <p className="text-sm text-black leading-relaxed font-serif">{text}</p>
       </div>
     );
   };
@@ -74,10 +74,10 @@ export const DailyCalendarView: React.FC = () => {
           <span className="w-7 h-7 rounded-lg bg-[#F1EFEC] text-[#4A5D4E] flex items-center justify-center shrink-0">
             {icon}
           </span>
-          <h4 className="text-sm font-bold text-[#2D241E] font-serif">{title}</h4>
+          <h4 className="text-sm font-bold text-black font-serif">{title}</h4>
         </div>
         <div className="flex items-center gap-2 text-left">
-          <span className="text-xs text-[#2D241E] leading-relaxed text-right">{text}</span>
+          <span className="text-xs text-black leading-relaxed text-right">{text}</span>
           <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${vs.dot}`} />
         </div>
       </div>
@@ -96,12 +96,12 @@ export const DailyCalendarView: React.FC = () => {
         <span className="mx-auto w-14 h-14 rounded-2xl bg-[#F1EFEC] text-[#8C7E6E] flex items-center justify-center">
           <Clock className="w-7 h-7" />
         </span>
-        <h3 className="text-lg font-bold text-[#2D241E] font-serif">التقويم قيد الصنع</h3>
+        <h3 className="text-lg font-bold text-black font-serif">لا يوجد تقويم منشور بعد</h3>
         <p className="text-sm text-[#8C7E6E] max-w-md mx-auto leading-relaxed">
-          لم يُنشر بعد تقويم يطابق تاريخ اليوم في هاتفك. سيتحدّث هذا القسم تلقائياً ويظهر التقويم فور نشره، دون الحاجة لإعادة تثبيت التطبيق.
+          لم يُنشر بعد تقويم يطابق تاريخ اليوم الهجري في هاتفك. سيظهر التقويم فور نشره على القناة، دون الحاجة لإعادة تثبيت التطبيق.
         </p>
         <p className="text-xs text-[#8C7E6E] max-w-md mx-auto leading-relaxed">
-          للاستفسار أو الإبلاغ عن أي خلل، تواصل مع المسؤول على تيليجرام:
+          يرجى مراسلة صاحب التقويم على تيليجرام للاستفسار أو الإبلاغ عن أي خلل:
         </p>
         <a
           href="https://t.me/baran_iq"
@@ -169,7 +169,7 @@ export const DailyCalendarView: React.FC = () => {
 
       {/* Actions verdicts */}
       <div className="rounded-[28px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
-        <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2 font-serif">
+        <h3 className="text-sm font-bold text-black flex items-center gap-2 font-serif">
           <CalendarDays className="w-4 h-4 text-[#4A5D4E]" /> أعمال اليوم وتوجيهاتها
         </h3>
         <div className="space-y-2.5">

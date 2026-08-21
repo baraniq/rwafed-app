@@ -133,7 +133,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
           >
             <ArrowRight className="w-4 h-4 rotate-180" /> رجوع
           </button>
-          <h3 className="text-lg font-bold text-[#2D241E] font-serif">{sectionLabel}</h3>
+          <h3 className="text-lg font-bold text-black font-serif">{sectionLabel}</h3>
           <span className="text-xs text-[#8C7E6E]">({filteredItems.length})</span>
         </div>
 
@@ -144,7 +144,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="ابحث..."
-            className="w-full pl-4 pr-11 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-[#2D241E] placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E]"
+            className="w-full pl-4 pr-11 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm text-black placeholder-[#8C7E6E] focus:outline-none focus:border-[#4A5D4E]"
           />
         </div>
 
@@ -159,7 +159,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
                 className="group p-4 rounded-2xl bg-white border border-[#E6E0D8] hover:border-[#4A5D4E] transition-all duration-200 cursor-pointer shadow-xs hover:shadow-md flex items-center justify-between gap-3"
               >
                 <div className="flex-1 min-w-0">
-                  <h4 className="text-sm font-bold text-[#2D241E] group-hover:text-[#4A5D4E] transition-colors font-serif truncate">{item.titleAr}</h4>
+                  <h4 className="text-sm font-bold text-black group-hover:text-[#4A5D4E] transition-colors font-serif truncate">{item.titleAr}</h4>
                   {item.recommendedTimeAr && <span className="text-[11px] text-[#8C7E6E]">{item.recommendedTimeAr}</span>}
                 </div>
                 <ChevronLeft className="w-4 h-4 text-[#4A5D4E] shrink-0 group-hover:-translate-x-1 transition-transform" />
@@ -189,7 +189,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
           >
             <ArrowRight className="w-4 h-4 rotate-180" /> رجوع
           </button>
-          <h3 className="text-lg font-bold text-[#2D241E] font-serif">{sahifa.title}</h3>
+          <h3 className="text-lg font-bold text-black font-serif">{sahifa.title}</h3>
         </div>
         <p className="text-sm text-[#4A5D4E] font-semibold text-center">{sahifa.subtitle}</p>
 
@@ -197,7 +197,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
           {sahifa.duas.map((dua) => (
             <div key={dua.number} onClick={() => { haptic.light(); setSelectedSahifaDua(dua.number); }} className="p-4 rounded-[20px] bg-white border border-[#E6E0D8] hover:border-[#4A5D4E] cursor-pointer transition-all duration-200 shadow-xs hover:shadow-md flex items-center gap-3">
               <span className="w-9 h-9 rounded-xl bg-[#F1EFEC] text-[#4A5D4E] text-xs font-bold flex items-center justify-center shrink-0">{dua.number}</span>
-              <h4 className="text-sm font-bold text-[#2D241E] font-serif leading-snug">{dua.title}</h4>
+              <h4 className="text-sm font-bold text-black font-serif leading-snug">{dua.title}</h4>
             </div>
           ))}
         </div>
@@ -219,10 +219,10 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
           >
             <ArrowRight className="w-4 h-4 rotate-180" /> رجوع
           </button>
-          <h3 className="text-lg font-bold text-[#2D241E] font-serif">{hadithKisa.title}</h3>
+          <h3 className="text-lg font-bold text-black font-serif">{hadithKisa.title}</h3>
         </div>
         <div className="flex items-center gap-2 justify-center">
-          <span className="px-3 py-1 rounded-full bg-[#D4E2D5] text-[#2D4232] text-[11px] font-bold">{hadithKisa.source}</span>
+          <span className="px-3 py-1 rounded-full bg-[#D4E2D5] text-black text-[11px] font-bold">{hadithKisa.source}</span>
         </div>
         <div className="p-5 rounded-2xl bg-[#FAF8F5] border border-[#E6E0D8] text-right font-serif leading-loose whitespace-pre-line" style={{ fontSize: `${fontSize}px`, lineHeight: "2.4" }}>
           {hadithKisa.text}
@@ -236,9 +236,9 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
             {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />} {copied ? "تم النسخ" : "نسخ النص"}
           </button>
           <div className="flex items-center rounded-xl bg-white border border-[#E6E0D8] p-0.5">
-            <button type="button" onClick={() => setFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">-A</button>
+            <button type="button" onClick={() => setFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">-A</button>
             <span className="text-xs px-1.5 text-[#4A5D4E] font-bold">{fontSize}</span>
-            <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">+A</button>
+            <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">+A</button>
           </div>
         </div>
       </div>
@@ -254,18 +254,18 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
         <div className="w-full h-full flex flex-col overflow-hidden animate-in fade-in duration-200" onClick={(e) => e.stopPropagation()}>
           <div className="p-4 sm:p-8 overflow-y-auto space-y-6 flex-1 bg-[#F9F7F5]">
             <div className="text-center space-y-2 pt-2">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-[#2D4232] text-[11px] font-bold">{selectedItem.category}</span>
-              <h3 className="text-xl font-bold font-serif text-[#2D241E]">{selectedItem.titleAr}</h3>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-black text-[11px] font-bold">{selectedItem.category}</span>
+              <h3 className="text-xl font-bold font-serif text-black">{selectedItem.titleAr}</h3>
             </div>
             {selectedItem.virtueAr && (
               <div className="p-4 rounded-2xl bg-[#F9F7F5] border border-[#E6E0D8]">
-                <div className="flex items-start gap-2 text-xs text-[#2D4232]">
+                <div className="flex items-start gap-2 text-xs text-black">
                   <Heart className="w-4 h-4 text-[#4A5D4E] shrink-0 mt-0.5" />
                   <span><strong>فضل القراءة:</strong> {selectedItem.virtueAr}</span>
                 </div>
               </div>
             )}
-            <div className="space-y-4 text-right font-serif leading-loose text-[#1A1A1A]">
+            <div className="space-y-4 text-right font-serif leading-loose text-black">
               {selectedItem.paragraphs.map((p, idx) => (
                 <div key={idx} className="p-4 sm:p-5 rounded-2xl bg-[#FAF8F5] border border-[#E6E0D8]/70 hover:border-[#D4CEBE] transition-colors whitespace-pre-line" style={{ fontSize: `${fontSize}px`, lineHeight: "2.4" }}>
                   {p.arabic}
@@ -279,9 +279,9 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />} <span className="hidden sm:inline">{copied ? "تم النسخ" : "نسخ"}</span>
               </button>
               <div className="flex items-center rounded-xl bg-white border border-[#E6E0D8] p-0.5">
-                <button type="button" onClick={() => setFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">-A</button>
+                <button type="button" onClick={() => setFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">-A</button>
                 <span className="text-xs px-1.5 text-[#4A5D4E] font-bold">{fontSize}</span>
-                <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">+A</button>
+                <button type="button" onClick={() => setFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">+A</button>
               </div>
             </div>
             <AppButton variant="primary" size="sm" onPress={() => { setSelectedItem(null); setCopied(false); haptic.light(); }}>إغلاق</AppButton>
@@ -299,10 +299,10 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
         <div className="w-full h-full flex flex-col overflow-hidden animate-in fade-in duration-200" onClick={(e) => e.stopPropagation()}>
           <div className="p-4 sm:p-8 overflow-y-auto flex-1 bg-[#F9F7F5]">
             <div className="text-center space-y-2 pt-2 pb-5">
-              <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-[#2D4232] text-[11px] font-bold">الصحيفة السجادية - الدعاء رقم {currentSahifaDua.number}</span>
-              <h3 className="text-xl font-bold font-serif text-[#2D241E]">{currentSahifaDua.title}</h3>
+              <span className="px-2.5 py-0.5 rounded-full bg-[#D4E2D5] text-black text-[11px] font-bold">الصحيفة السجادية - الدعاء رقم {currentSahifaDua.number}</span>
+              <h3 className="text-xl font-bold font-serif text-black">{currentSahifaDua.title}</h3>
             </div>
-            <div className="text-right font-serif leading-loose text-[#1A1A1A]">
+            <div className="text-right font-serif leading-loose text-black">
               <div className="p-4 sm:p-6 rounded-2xl bg-white border border-[#E6E0D8]/70 hover:border-[#D4CEBE] transition-colors whitespace-pre-line" style={{ fontSize: `${sahifaFontSize}px`, lineHeight: "2.4" }}>
                 {currentSahifaDua.text}
               </div>
@@ -314,9 +314,9 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
                 {copied ? <Check className="w-3.5 h-3.5 text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />} <span className="hidden sm:inline">{copied ? "تم النسخ" : "نسخ"}</span>
               </button>
               <div className="flex items-center rounded-xl bg-white border border-[#E6E0D8] p-0.5">
-                <button type="button" onClick={() => setSahifaFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">-A</button>
+                <button type="button" onClick={() => setSahifaFontSize((s) => Math.max(16, s - 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">-A</button>
                 <span className="text-xs px-1.5 text-[#4A5D4E] font-bold">{sahifaFontSize}</span>
-                <button type="button" onClick={() => setSahifaFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-[#2D241E] cursor-pointer font-bold">+A</button>
+                <button type="button" onClick={() => setSahifaFontSize((s) => Math.min(36, s + 2))} className="px-2 py-1 text-xs text-[#8C7E6E] hover:text-black cursor-pointer font-bold">+A</button>
               </div>
             </div>
             <AppButton variant="primary" size="sm" onPress={() => { setSelectedSahifaDua(null); setCopied(false); haptic.light(); }}>إغلاق</AppButton>
@@ -334,7 +334,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
             <BookMarked className="w-5 h-5" />
           </span>
           <div>
-            <h2 className="text-xl font-bold text-[#2D241E] font-serif">الأدعية والزيارات المأثورة</h2>
+            <h2 className="text-xl font-bold text-black font-serif">الأدعية والزيارات المأثورة</h2>
             <p className="text-xs text-[#8C7E6E]">
               {loadingDuas ? "جاري تحميل الأدعية..." : `${safinaDuas.length} دعاء وزيارة`}
             </p>
@@ -370,7 +370,7 @@ export const DevotionsView: React.FC<DevotionsViewProps> = ({ showFeedback }) =>
             >
               <div className="flex items-center gap-3">
                 <span className="w-10 h-10 rounded-xl bg-[#4A5D4E] text-white text-xs font-bold flex items-center justify-center">{section.count}</span>
-                <h3 className="text-base font-bold text-[#2D241E] font-serif">{section.label}</h3>
+                <h3 className="text-base font-bold text-black font-serif">{section.label}</h3>
               </div>
               <ChevronLeft className="w-5 h-5 text-[#8C7E6E]" />
             </button>

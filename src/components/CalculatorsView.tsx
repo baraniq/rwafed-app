@@ -95,7 +95,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           type="button"
           onClick={() => { setActiveSection("tasbeeh"); haptic.light(); }}
           className={`flex-1 min-w-[110px] py-2 sm:py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-            activeSection === "tasbeeh" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-[#2D241E]"
+            activeSection === "tasbeeh" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-black"
           }`}
         >
           <CircleDot className="w-3.5 h-3.5" />
@@ -106,7 +106,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           type="button"
           onClick={() => { setActiveSection("qada"); haptic.light(); }}
           className={`flex-1 min-w-[110px] py-2 sm:py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-            activeSection === "qada" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-[#2D241E]"
+            activeSection === "qada" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-black"
           }`}
         >
           <Calculator className="w-3.5 h-3.5" />
@@ -117,7 +117,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           type="button"
           onClick={() => { setActiveSection("inheritance"); haptic.light(); }}
           className={`flex-1 min-w-[110px] py-2 sm:py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-            activeSection === "inheritance" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-[#2D241E]"
+            activeSection === "inheritance" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-black"
           }`}
         >
           <Award className="w-3.5 h-3.5" />
@@ -128,7 +128,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           type="button"
           onClick={() => { setActiveSection("khums"); haptic.light(); }}
           className={`flex-1 min-w-[110px] py-2 sm:py-2.5 rounded-xl sm:rounded-full text-xs font-bold transition-all cursor-pointer flex items-center justify-center gap-1.5 ${
-            activeSection === "khums" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-[#2D241E]"
+            activeSection === "khums" ? "bg-[#4A5D4E] text-white shadow-xs" : "text-[#8C7E6E] hover:text-black"
           }`}
         >
           <Coins className="w-3.5 h-3.5" />
@@ -137,7 +137,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
       </div>
 
       {message && (
-        <div className="p-4 rounded-2xl bg-[#D4E2D5] border border-[#B8CEBA] text-[#2D4232] text-xs flex items-center gap-2">
+        <div className="p-4 rounded-2xl bg-[#D4E2D5] border border-[#B8CEBA] text-black text-xs flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 text-[#4A5D4E] shrink-0" />
           <span>{message}</span>
         </div>
@@ -151,7 +151,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
         <div className="rounded-[32px] bg-white border border-[#E6E0D8] p-6 sm:p-8 shadow-xs space-y-6">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-[#E6E0D8] pb-5">
             <div>
-              <h3 className="text-xl font-bold text-[#2D241E] flex items-center gap-2 font-serif">
+              <h3 className="text-xl font-bold text-black flex items-center gap-2 font-serif">
                 <Calculator className="w-5 h-5 text-[#4A5D4E]" />
                 سجل وحاسبة قضاء الصلوات والصيام
               </h3>
@@ -159,7 +159,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
                 تتبع الصلوات والصيام الفائت، وسجّل ما تقضيه يومياً لنيل براءة الذمة
               </p>
             </div>
-            <div className="flex items-center gap-2 text-xs text-[#2D4232] font-bold px-4 py-2 rounded-full bg-[#D4E2D5]">
+            <div className="flex items-center gap-2 text-xs text-black font-bold px-4 py-2 rounded-full bg-[#D4E2D5]">
               <span>مجموع الصلوات المطلوبة: {toNumeral(totalPrayersCount, numeral)}</span>
             </div>
           </div>
@@ -168,13 +168,13 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
               <div key={field.key} className="p-5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] flex flex-col justify-between space-y-4">
                 <div className="flex items-center justify-between">
                   <span className={`text-xs font-bold ${field.color}`}>{field.label}</span>
-                  <span className="font-mono text-xl font-extrabold text-[#2D241E]">{toNumeral(qada[field.key], numeral)}</span>
+                  <span className="font-mono text-xl font-extrabold text-black">{toNumeral(qada[field.key], numeral)}</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     type="button"
                     onClick={() => { setQada((q) => ({ ...q, [field.key]: Math.max(0, q[field.key] - 1) })); haptic.light(); }}
-                    className="flex-1 py-2 rounded-xl bg-white hover:bg-[#E6E0D8] text-[#2D241E] text-xs font-bold border border-[#E6E0D8] flex items-center justify-center gap-1 cursor-pointer transition-colors"
+                    className="flex-1 py-2 rounded-xl bg-white hover:bg-[#E6E0D8] text-black text-xs font-bold border border-[#E6E0D8] flex items-center justify-center gap-1 cursor-pointer transition-colors"
                   >
                     <Minus className="w-3.5 h-3.5" />
                     قضيت صلاة
@@ -202,7 +202,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
       {activeSection === "inheritance" && (
         <div className="rounded-[32px] bg-white border border-[#E6E0D8] p-6 sm:p-8 shadow-xs space-y-6">
           <div className="border-b border-[#E6E0D8] pb-5">
-            <h3 className="text-xl font-bold text-[#2D241E] flex items-center gap-2 font-serif">
+            <h3 className="text-xl font-bold text-black flex items-center gap-2 font-serif">
               <Award className="w-5 h-5 text-[#4A5D4E]" />
               حاسبة المواريث الشرعية (الطبقة الأولى - الفقه الجعفري)
             </h3>
@@ -213,36 +213,36 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-[#2D241E] mb-1.5">قيمة التركة الصافية:</label>
+                <label className="block text-xs font-bold text-black mb-1.5">قيمة التركة الصافية:</label>
                  <div className="flex items-center rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] px-4 py-2.5">
-                   <input type="text" inputMode="numeric" value={estateAmount === 0 ? "" : toNumeral(estateAmount, numeral)} onChange={(e) => setEstateAmount(Math.max(0, parseNumeral(e.target.value)))} className="w-full bg-transparent text-sm font-bold text-[#2D241E] focus:outline-none" placeholder="0" />
+                   <input type="text" inputMode="numeric" value={estateAmount === 0 ? "" : toNumeral(estateAmount, numeral)} onChange={(e) => setEstateAmount(Math.max(0, parseNumeral(e.target.value)))} className="w-full bg-transparent text-sm font-bold text-black focus:outline-none" placeholder="0" />
                    <span className="text-xs font-bold text-[#8C7E6E]">د.ع / ريال</span>
                  </div>
               </div>
               <div className="p-4 rounded-2xl bg-[#FAF8F5] border border-[#E6E0D8] space-y-3">
                 <div className="text-xs font-bold text-[#4A5D4E] mb-2">أفراد الطبقة الأولى الموجودون:</div>
                 <div className="grid grid-cols-2 gap-3">
-                  <label className="flex items-center gap-2 text-xs font-bold text-[#2D241E] cursor-pointer">
+                  <label className="flex items-center gap-2 text-xs font-bold text-black cursor-pointer">
                     <input type="checkbox" checked={hasFather} onChange={(e) => setHasFather(e.target.checked)} className="rounded accent-[#4A5D4E] w-4 h-4" />
                     الأب على قيد الحياة
                   </label>
-                  <label className="flex items-center gap-2 text-xs font-bold text-[#2D241E] cursor-pointer">
+                  <label className="flex items-center gap-2 text-xs font-bold text-black cursor-pointer">
                     <input type="checkbox" checked={hasMother} onChange={(e) => setHasMother(e.target.checked)} className="rounded accent-[#4A5D4E] w-4 h-4" />
                     الأم على قيد الحياة
                   </label>
                 </div>
                 <div className="pt-2 border-t border-[#E6E0D8]/60 space-y-2">
-                  <label className="flex items-center gap-2 text-xs font-bold text-[#2D241E] cursor-pointer">
+                  <label className="flex items-center gap-2 text-xs font-bold text-black cursor-pointer">
                     <input type="checkbox" checked={hasSpouse} onChange={(e) => setHasSpouse(e.target.checked)} className="rounded accent-[#4A5D4E] w-4 h-4" />
                     يوجد زوج / زوجة
                   </label>
                   {hasSpouse && (
                     <div className="flex items-center gap-4 pr-6 pt-1">
-                      <label className="flex items-center gap-1.5 text-xs text-[#2D241E] cursor-pointer">
+                      <label className="flex items-center gap-1.5 text-xs text-black cursor-pointer">
                         <input type="radio" name="spouseType" checked={spouseType === "wife"} onChange={() => setSpouseType("wife")} className="accent-[#4A5D4E]" />
                         الزوجة
                       </label>
-                      <label className="flex items-center gap-1.5 text-xs text-[#2D241E] cursor-pointer">
+                      <label className="flex items-center gap-1.5 text-xs text-black cursor-pointer">
                         <input type="radio" name="spouseType" checked={spouseType === "husband"} onChange={() => setSpouseType("husband")} className="accent-[#4A5D4E]" />
                         الزوج
                       </label>
@@ -251,12 +251,12 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
                 </div>
                 <div className="pt-2 border-t border-[#E6E0D8]/60 grid grid-cols-2 gap-3">
                   <div>
-                    <label className="block text-[11px] font-bold text-[#2D241E] mb-1">عدد الأبناء (ذكور):</label>
-                    <input type="text" inputMode="numeric" value={sonsCount === 0 ? "" : toNumeral(sonsCount, numeral)} onChange={(e) => setSonsCount(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-3 py-1.5 rounded-xl bg-white border border-[#E6E0D8] text-xs font-bold text-[#2D241E]" placeholder="0" />
+                    <label className="block text-[11px] font-bold text-black mb-1">عدد الأبناء (ذكور):</label>
+                    <input type="text" inputMode="numeric" value={sonsCount === 0 ? "" : toNumeral(sonsCount, numeral)} onChange={(e) => setSonsCount(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-3 py-1.5 rounded-xl bg-white border border-[#E6E0D8] text-xs font-bold text-black" placeholder="0" />
                   </div>
                   <div>
-                    <label className="block text-[11px] font-bold text-[#2D241E] mb-1">عدد البنات (إناث):</label>
-                    <input type="text" inputMode="numeric" value={daughtersCount === 0 ? "" : toNumeral(daughtersCount, numeral)} onChange={(e) => setDaughtersCount(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-3 py-1.5 rounded-xl bg-white border border-[#E6E0D8] text-xs font-bold text-[#2D241E]" placeholder="0" />
+                    <label className="block text-[11px] font-bold text-black mb-1">عدد البنات (إناث):</label>
+                    <input type="text" inputMode="numeric" value={daughtersCount === 0 ? "" : toNumeral(daughtersCount, numeral)} onChange={(e) => setDaughtersCount(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-3 py-1.5 rounded-xl bg-white border border-[#E6E0D8] text-xs font-bold text-black" placeholder="0" />
                   </div>
                 </div>
               </div>
@@ -286,41 +286,41 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
                 <div className="p-5 rounded-2xl bg-[#F5F2EE] border border-[#E6E0D8] space-y-4">
                   <div className="flex items-center justify-between border-b border-[#E6E0D8] pb-3">
                     <span className="text-xs font-bold text-[#4A5D4E]">تفصيل الحصص الشرعية:</span>
-                    <span className="text-xs font-bold text-[#2D241E] font-mono">{estateAmount.toLocaleString()} إجمالي</span>
+                    <span className="text-xs font-bold text-black font-mono">{estateAmount.toLocaleString()} إجمالي</span>
                   </div>
                   <div className="space-y-2.5 text-xs">
                     {hasSpouse && (
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-[#E6E0D8]/70">
                         <span>{spouseLabel}</span>
-                        <span className="font-bold text-[#2D4232]">{Math.round(spouseAmount).toLocaleString()}</span>
+                        <span className="font-bold text-black">{Math.round(spouseAmount).toLocaleString()}</span>
                       </div>
                     )}
                     {hasFather && (
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-[#E6E0D8]/70">
                         <span>الأب (السدس 1/6)</span>
-                        <span className="font-bold text-[#2D4232]">{Math.round(fatherAmount).toLocaleString()}</span>
+                        <span className="font-bold text-black">{Math.round(fatherAmount).toLocaleString()}</span>
                       </div>
                     )}
                     {hasMother && (
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-[#E6E0D8]/70">
                         <span>الأم (السدس 1/6)</span>
-                        <span className="font-bold text-[#2D4232]">{Math.round(motherAmount).toLocaleString()}</span>
+                        <span className="font-bold text-black">{Math.round(motherAmount).toLocaleString()}</span>
                       </div>
                     )}
                     {sonsCount > 0 && (
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-[#E6E0D8]/70">
                         <span>الأبناء ({sonsCount} × 2)</span>
-                        <span className="font-bold text-[#2D4232]">{Math.round(perSonAmount * sonsCount).toLocaleString()}</span>
+                        <span className="font-bold text-black">{Math.round(perSonAmount * sonsCount).toLocaleString()}</span>
                       </div>
                     )}
                     {daughtersCount > 0 && (
                       <div className="flex items-center justify-between p-2.5 rounded-xl bg-white border border-[#E6E0D8]/70">
                         <span>البنات ({daughtersCount} × 1)</span>
-                        <span className="font-bold text-[#2D4232]">{Math.round(perDaughterAmount * daughtersCount).toLocaleString()}</span>
+                        <span className="font-bold text-black">{Math.round(perDaughterAmount * daughtersCount).toLocaleString()}</span>
                       </div>
                     )}
                   </div>
-                  <div className="p-3 rounded-xl bg-[#D4E2D5]/40 border border-[#B8CEBA] text-[11px] text-[#2D4232] leading-relaxed">
+                  <div className="p-3 rounded-xl bg-[#D4E2D5]/40 border border-[#B8CEBA] text-[11px] text-black leading-relaxed">
                     تنبيه: حساب تقريبي للطبقة الأولى فقط. يُنصح بمراجعة مكتب المرجع الشرعي.
                   </div>
                 </div>
@@ -333,7 +333,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
       {activeSection === "khums" && (
         <div className="rounded-[32px] bg-white border border-[#E6E0D8] p-6 sm:p-8 shadow-xs space-y-6">
           <div className="border-b border-[#E6E0D8] pb-5">
-            <h3 className="text-xl font-bold text-[#2D241E] flex items-center gap-2 font-serif">
+            <h3 className="text-xl font-bold text-black flex items-center gap-2 font-serif">
               <Scale className="w-5 h-5 text-[#4A5D4E]" />
               حاسبة الخمس ورأس السنة الخمسية
             </h3>
@@ -344,16 +344,16 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             <div className="space-y-4">
               <div>
-                <label className="block text-xs font-bold text-[#2D241E] mb-1">1. الأموال النقدية والمدخرات:</label>
-                <input type="text" inputMode="numeric" value={cashSavings === 0 ? "" : toNumeral(cashSavings, numeral)} onChange={(e) => setCashSavings(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-[#2D241E] focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
+                <label className="block text-xs font-bold text-black mb-1">1. الأموال النقدية والمدخرات:</label>
+                <input type="text" inputMode="numeric" value={cashSavings === 0 ? "" : toNumeral(cashSavings, numeral)} onChange={(e) => setCashSavings(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-black focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-[#2D241E] mb-1">2. قيمة المؤونة والبضائع الفائضة:</label>
-                <input type="text" inputMode="numeric" value={surplusGoods === 0 ? "" : toNumeral(surplusGoods, numeral)} onChange={(e) => setSurplusGoods(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-[#2D241E] focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
+                <label className="block text-xs font-bold text-black mb-1">2. قيمة المؤونة والبضائع الفائضة:</label>
+                <input type="text" inputMode="numeric" value={surplusGoods === 0 ? "" : toNumeral(surplusGoods, numeral)} onChange={(e) => setSurplusGoods(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-black focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
               </div>
               <div>
-                <label className="block text-xs font-bold text-[#2D241E] mb-1">3. ديون مؤونة واجبة السداد:</label>
-                <input type="text" inputMode="numeric" value={immediateDebts === 0 ? "" : toNumeral(immediateDebts, numeral)} onChange={(e) => setImmediateDebts(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-[#2D241E] focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
+                <label className="block text-xs font-bold text-black mb-1">3. ديون مؤونة واجبة السداد:</label>
+                <input type="text" inputMode="numeric" value={immediateDebts === 0 ? "" : toNumeral(immediateDebts, numeral)} onChange={(e) => setImmediateDebts(Math.max(0, parseNumeral(e.target.value)))} className="w-full px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-xs font-bold text-black focus:outline-none focus:border-[#4A5D4E]" placeholder="0" />
               </div>
             </div>
             {(() => {
@@ -367,7 +367,7 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
                     <div className="text-xs font-bold text-[#4A5D4E]">نتيجة الحساب الخُمسي:</div>
                     <div className="p-3.5 rounded-xl bg-white border border-[#E6E0D8] flex items-center justify-between text-xs">
                       <span>صافي الفائض:</span>
-                      <span className="font-bold text-[#2D241E]">{Math.round(netSurplus).toLocaleString()}</span>
+                      <span className="font-bold text-black">{Math.round(netSurplus).toLocaleString()}</span>
                     </div>
                     <div className="p-4 rounded-xl bg-[#4A5D4E] text-white flex items-center justify-between shadow-sm">
                       <span className="text-xs font-bold">الخمس الواجب (20%):</span>
@@ -376,11 +376,11 @@ export const CalculatorsView: React.FC<CalculatorsViewProps> = ({
                     <div className="grid grid-cols-2 gap-3 pt-2">
                       <div className="p-3 rounded-xl bg-white border border-[#E6E0D8] text-center">
                         <span className="text-[10px] text-[#8C7E6E] block">سهم الإمام (عج):</span>
-                        <span className="text-xs font-bold text-[#2D4232]">{Math.round(imamShare).toLocaleString()}</span>
+                        <span className="text-xs font-bold text-black">{Math.round(imamShare).toLocaleString()}</span>
                       </div>
                       <div className="p-3 rounded-xl bg-white border border-[#E6E0D8] text-center">
                         <span className="text-[10px] text-[#8C7E6E] block">سهم السادة:</span>
-                        <span className="text-xs font-bold text-[#2D4232]">{Math.round(sadatShare).toLocaleString()}</span>
+                        <span className="text-xs font-bold text-black">{Math.round(sadatShare).toLocaleString()}</span>
                       </div>
                     </div>
                   </div>

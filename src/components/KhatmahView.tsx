@@ -181,11 +181,11 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
               <Users className="w-5 h-5" />
             </span>
             <div>
-              <h2 className="text-xl font-bold text-[#2D241E] font-serif">الختمات الجماعية</h2>
+              <h2 className="text-xl font-bold text-black font-serif">الختمات الجماعية</h2>
               <p className="text-xs text-[#8C7E6E]">شارك في ختم القرآن مع المسلمين حول العالم</p>
             </div>
           </div>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#D4E2D5]/40 text-[#2D4232] text-xs font-bold">
+          <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#D4E2D5]/40 text-black text-xs font-bold">
             <span className="w-1.5 h-1.5 rounded-full bg-[#4A5D4E] animate-pulse" /> مباشر
           </span>
         </div>
@@ -206,7 +206,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
         <div className="space-y-4">
           {/* Create Form */}
           <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-4">
-            <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+            <h3 className="text-sm font-bold text-black flex items-center gap-2">
               <Plus className="w-4 h-4 text-[#4A5D4E]" /> إنشاء ختمة جديدة
             </h3>
             <div className="flex items-center gap-3">
@@ -228,7 +228,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
               return (
                 <div key={khatma.id} className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-4">
                   <div className="flex items-center justify-between">
-                    <h3 className="font-bold text-[#2D241E] font-serif">{khatma.name}</h3>
+                    <h3 className="font-bold text-black font-serif">{khatma.name}</h3>
                     <div className="flex items-center gap-2">
                       <span className="text-xs text-[#8C7E6E]">{completed}/{khatma.parts.length} ({progress}%)</span>
                       {khatma.ownerFingerprint === device.id && (
@@ -245,7 +245,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
                         type="button"
                         onClick={() => toggleBlock(khatma.id)}
                         title="حجب المنشور"
-                        className="p-1.5 rounded-lg text-[#8C7E6E] hover:text-[#2D241E] hover:bg-[#F1EFEC] cursor-pointer transition-colors"
+                        className="p-1.5 rounded-lg text-[#8C7E6E] hover:text-black hover:bg-[#F1EFEC] cursor-pointer transition-colors"
                       >
                         <EyeOff className="w-4 h-4" />
                       </button>
@@ -295,7 +295,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
               <div className="space-y-2">
                 {blockedKhatmahs.map((khatma) => (
                   <div key={khatma.id} className="flex items-center justify-between p-3 rounded-xl bg-[#F9F7F5] border border-[#E6E0D8]">
-                    <span className="text-xs font-bold text-[#2D241E]">{khatma.name}</span>
+                    <span className="text-xs font-bold text-black">{khatma.name}</span>
                     <button
                       type="button"
                       onClick={() => toggleBlock(khatma.id)}
@@ -316,12 +316,12 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
         <div className="space-y-4">
           {/* Submit Dua Form */}
           <div className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-4">
-            <h3 className="text-sm font-bold text-[#2D241E] flex items-center gap-2">
+            <h3 className="text-sm font-bold text-black flex items-center gap-2">
               <Send className="w-4 h-4 text-[#4A5D4E]" /> اطلب دعاءً من الجماعة
             </h3>
             <div className="flex items-center gap-3">
               <input type="text" value={duaName} onChange={(e) => setDuaName(e.target.value)} placeholder="اسمك (اختياري)" className="flex-1 px-4 py-2.5 rounded-2xl bg-[#F1EFEC] border border-[#E6E0D8] text-sm focus:outline-none" disabled={duaAnonymous} />
-              <label className="flex items-center gap-2 text-xs text-[#2D241E] cursor-pointer">
+              <label className="flex items-center gap-2 text-xs text-black cursor-pointer">
                 <input type="checkbox" checked={duaAnonymous} onChange={(e) => setDuaAnonymous(e.target.checked)} className="accent-[#4A5D4E]" />
                 مجهول
               </label>
@@ -349,7 +349,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
             visibleDuas.map((dua) => (
               <div key={dua.id} className="rounded-[24px] bg-white border border-[#E6E0D8] p-5 shadow-xs space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold text-[#2D241E]">{dua.name}</span>
+                  <span className="text-xs font-bold text-black">{dua.name}</span>
                   <div className="flex items-center gap-2">
                     <span className="text-[10px] text-[#8C7E6E] flex items-center gap-1">
                       <Clock className="w-3 h-3" /> {new Date(dua.timestamp).toLocaleString("ar-EG")}
@@ -368,16 +368,16 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
                       type="button"
                       onClick={() => toggleBlock(dua.id)}
                       title="حجب المنشور"
-                      className="p-1.5 rounded-lg text-[#8C7E6E] hover:text-[#2D241E] hover:bg-[#F1EFEC] cursor-pointer transition-colors"
+                      className="p-1.5 rounded-lg text-[#8C7E6E] hover:text-black hover:bg-[#F1EFEC] cursor-pointer transition-colors"
                     >
                       <EyeOff className="w-4 h-4" />
                     </button>
                   </div>
                 </div>
-                <p className="text-sm text-[#2D241E] leading-relaxed font-serif">{dua.duaText}</p>
+                <p className="text-sm text-black leading-relaxed font-serif">{dua.duaText}</p>
                 <div className="flex items-center justify-between pt-2 border-t border-[#E6E0D8]/50">
                   <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#F1EFEC] text-[#8C7E6E]">{dua.category}</span>
-                  <button type="button" onClick={() => handlePrayForDua(dua.id)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#D4E2D5]/40 hover:bg-[#D4E2D5] text-[#2D4232] text-xs font-bold cursor-pointer transition-colors">
+                  <button type="button" onClick={() => handlePrayForDua(dua.id)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-[#D4E2D5]/40 hover:bg-[#D4E2D5] text-black text-xs font-bold cursor-pointer transition-colors">
                     <Heart className="w-3.5 h-3.5" /> أدعو لك ({dua.prayCount})
                   </button>
                 </div>
@@ -403,7 +403,7 @@ export const KhatmahView: React.FC<KhatmahViewProps> = ({ showFeedback }) => {
               <div className="space-y-2">
                 {blockedDuas.map((dua) => (
                   <div key={dua.id} className="flex items-center justify-between p-3 rounded-xl bg-[#F9F7F5] border border-[#E6E0D8]">
-                    <span className="text-xs font-bold text-[#2D241E] line-clamp-1">{dua.duaText}</span>
+                    <span className="text-xs font-bold text-black line-clamp-1">{dua.duaText}</span>
                     <button
                       type="button"
                       onClick={() => toggleBlock(dua.id)}
