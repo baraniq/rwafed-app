@@ -43,23 +43,9 @@ export const DailyCalendarView: React.FC = () => {
   useEffect(() => {
     setNumeral(getNumeralSystem());
     setLoading(true);
-    let found = false;
     const unsub = subscribeTodayCalendar((entry) => {
-      if (entry) {
-        found = true;
-        setToday(entry);
-        setLoading(false);
-      } else if (!found) {
-        fetch(`/data/daily-calendar/calendar.json`)
-          .then((r) => r.json())
-          .then((data: { days?: DailyCalendarEntry[] }) => {
-            const gk = todayKey();
-            const local = data.days?.find((d) => d.date === gk) || null;
-            setToday(local);
-          })
-          .catch(() => setToday(null))
-          .finally(() => { setLoading(false); found = true; });
-      }
+      setToday(entry);
+      setLoading(false);
     });
     return () => unsub();
   }, [todayKey()]);
