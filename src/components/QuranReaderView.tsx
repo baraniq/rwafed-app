@@ -746,8 +746,8 @@ export const QuranReaderView: React.FC<QuranReaderViewProps> = ({ showFeedback }
               <img
                 src={`/quran-pages/ar-${String(currentPage).padStart(3, "0")}.png`}
                 alt={`صفحة ${currentPage}`}
-                className="max-w-none shrink-0 transition-transform duration-200"
-                style={{ transform: `scale(${imageZoom / 100})`, transformOrigin: "top center", filter: document.documentElement.classList.contains("dark") ? "invert(1) brightness(1.8) contrast(0.9)" : "none" }}
+                className="max-w-none shrink-0 transition-transform duration-200 quran-page-img"
+                style={{ transform: `scale(${imageZoom / 100})`, transformOrigin: "top center" }}
                 onClick={handleImageTap}
                 onError={(e) => {
                   (e.target as HTMLImageElement).style.display = "none";
