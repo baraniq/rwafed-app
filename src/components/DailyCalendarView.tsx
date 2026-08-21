@@ -23,6 +23,7 @@ import { toNumeral, getNumeralSystem, NumeralSystem } from "../lib/numerals";
 import {
   subscribeTodayCalendar,
   todayKey,
+  getPhoneHijri,
   DailyCalendarEntry,
 } from "../lib/dailyCalendar";
 
@@ -130,7 +131,7 @@ export const DailyCalendarView: React.FC = () => {
             </span>
             <div>
               <h2 className="text-xl sm:text-2xl font-bold font-serif">تقويم يوم {today.weekday}</h2>
-              <p className="text-sm text-[#D4E2D5]">{today.gregorian} • {today.hijri}</p>
+              <p className="text-sm text-[#D4E2D5]">{today.gregorian} • {getPhoneHijri()}</p>
             </div>
           </div>
           <span className="px-4 py-2 rounded-full bg-white/15 text-xs font-bold">صدقة اليوم</span>

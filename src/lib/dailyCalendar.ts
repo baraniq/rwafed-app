@@ -41,6 +41,21 @@ export function todayKey(d: Date = new Date()): string {
   return `${y}-${m}-${day}`;
 }
 
+/** Get today's Hijri date from the phone itself (sunset-based: -1 day) */
+export function getPhoneHijri(d: Date = new Date()): string {
+  try {
+    const shifted = new Date(d);
+    shifted.setDate(shifted.getDate() - 1);
+    return new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", {
+      day: "numeric",
+      month: "long",
+      year: "numeric",
+    }).format(shifted);
+  } catch {
+    return "";
+  }
+}
+
 function mapEntry(key: string, raw: any): DailyCalendarEntry | null {
   if (!raw || typeof raw !== "object") return null;
   return { date: key, ...raw } as DailyCalendarEntry;
