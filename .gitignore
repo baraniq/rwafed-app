@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+dist/
+*.tsbuildinfo
+
+# Heavy static data (bundled in APK, not needed by server)
+public/data/
+public/quran-pages/
+
+# Android build + generated assets (recreated by cap sync)
+android/.gradle/
+android/app/build/
+android/app/src/main/assets/
+android/build/
+android/.idea/
+android/captures/
+android/.externalNativeBuild/
+android/.cxx/
+android/local.properties
+
+# Env & secrets
+.env
+.env.local
+
+# Server data (persistent storage)
+server/data.json
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.idea/
+.vscode/
+*.suo
+*.user

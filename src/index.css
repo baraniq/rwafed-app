@@ -1,0 +1,127 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "NassimArabic";
+  src: url("/fonts/NassimArabic-Rg.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NassimArabic";
+  src: url("/fonts/NassimArabic-Bd.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "NassimArabic";
+  src: url("/fonts/NassimArabic-Rg-web.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "SA Uthman TN";
+  src: url("/fonts/SA_UthmanTN1 Ver10.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SA Uthman TN";
+  src: url("/fonts/SA_UthmanTN1 Ver10-D.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "SA Uthman TN";
+  src: url("/fonts/SA_UthmanTN1 Ver10-ND.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "UthmanicScript";
+  src: url("/fonts/UthmanicScriptD-Regular.otf") format("opentype"),
+       url("/fonts/UthmanicScriptD-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Uthman TN";
+  src: url("/fonts/UthmanTN1-Ver10.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Uthman TN";
+  src: url("/fonts/UthmanTN1B-Ver10.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Noto Naskh Arabic";
+  src: url("https://fonts.gstatic.com/s/notonaskharabic/v21/Iurf6YBj_oCad4k1l_6gHrRpiYlJ.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+  font-family: var(--app-font, "Tajawal"), sans-serif;
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+.font-serif {
+  font-family: var(--app-font, "Amiri"), serif;
+  font-size: var(--app-font-size, 16px) !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Dark Mode */
+.dark body {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Counter-invert images so they look normal */
+.dark img:not(.quran-page-img) {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* Quran page images stay inverted = white text on dark background */
+.dark .quran-page-img {
+  filter: none;
+}
+
+/* Counter-invert colored elements */
+.dark [class*="bg-[#4A5D4E"],
+.dark [class*="bg-[#3d4d40"],
+.dark [class*="bg-gradient"] {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+.dark ::-webkit-scrollbar { background: #1a1a2e; }
+.dark ::-webkit-scrollbar-thumb { background: #444466; }
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
