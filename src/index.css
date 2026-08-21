@@ -93,19 +93,24 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Dark Mode */
-.dark body {
-  filter: invert(1) hue-rotate(180deg);
+/* Dark Mode - use CSS variables instead of filter */
+.dark {
+  color-scheme: dark;
 }
 
-/* Counter-invert images so they look normal */
+.dark body {
+  background-color: #1a1a2e !important;
+  color: #ffffff !important;
+}
+
+/* Counter-invert images so they look normal in dark mode */
 .dark img:not(.quran-page-img) {
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* Quran page images stay inverted = white text on dark background */
+/* Quran page images: invert to show white text on dark background */
 .dark .quran-page-img {
-  filter: none;
+  filter: invert(1) brightness(1.8) contrast(0.9);
 }
 
 /* Counter-invert colored elements */
