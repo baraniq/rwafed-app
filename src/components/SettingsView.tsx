@@ -11,6 +11,7 @@ import {
   Bell, BellOff, Download, Upload, Trash2, Share2, RefreshCw,
   Vibrate, Type as TypeIcon, ChevronDown, ChevronUp,
 } from "lucide-react";
+import { Share } from "@capacitor/share";
 import {
   getCachedCoords,
   cacheCoords,
@@ -219,19 +220,28 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
   const handleShare = async () => {
     const apkUrl = "https://github.com/baraniq/rwafed-app/releases/download/v1.2.0/rwafed-v1.2.0.apk";
     try {
-      if (navigator.share) {
-        await navigator.share({
-          title: "تطبيق روافد",
-          text: "تطبيق روافد — رفيقك الإسلامي اليومي.",
-          url: apkUrl,
-        });
-      } else {
-        await navigator.clipboard.writeText(apkUrl);
+      await Share.share({
+        title: "تطبيق روافد",
+        text: "تطبيق روافد — رفيقك الإسلامي اليومي. القرآن الكريم، الأدعية، الاستخارة، والكثير.",
+        url: apkUrl,
+        dialogTitle: "مشاركة التطبيق",
+      });
+    } catch {
+      try {
+        if (navigator.share) {
+          await navigator.share({
+            title: "تطبيق روافد",
+            text: "تطبيق روافد — رفيقك الإسلامي اليومي.",
+            url: apkUrl,
+          });
+        } else {
+          await navigator.clipboard.writeText(apkUrl);
+          showFeedback("تم نسخ رابط التحميل");
+        }
+      } catch {
+        try { await navigator.clipboard.writeText(apkUrl); } catch {}
         showFeedback("تم نسخ رابط التحميل");
       }
-    } catch {
-      try { await navigator.clipboard.writeText(apkUrl); } catch {}
-      showFeedback("تم نسخ رابط التحميل");
     }
   };
 
