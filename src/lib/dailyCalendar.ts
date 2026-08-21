@@ -41,20 +41,23 @@ export function todayKey(d: Date = new Date()): string {
   return `${y}-${m}-${day}`;
 }
 
-/** Get today's Hijri date as a searchable key (e.g. "25 صفر المظفر 1448") */
-export function hijriKey(d: Date = new Date()): string {
+/** Get today's Hijri date parts: day number, month name, year */
+export function getHijriParts(d: Date = new Date()): { day: string; month: string; year: string } {
   try {
     const shifted = new Date(d);
     shifted.setDate(shifted.getDate() - 1);
-    const formatter = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    });
-    return formatter.format(shifted);
+    const day = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { day: "numeric" }).format(shifted);
+    const month = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { month: "long" }).format(shifted);
+    const year = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { year: "numeric" }).format(shifted);
+    return { day, month, year };
   } catch {
-    return "";
+    return { day: "", month: "", year: "" };
   }
+}
+
+/** Normalize a hijri string by removing slashes, extra spaces, and "هـ" */
+function normalizeHijri(s: string): string {
+  return s.replace(/[\/\u002F]/g, " ").replace(/\s+/g, " ").replace(/هـ/g, "").trim();
 }
 
 function mapEntry(key: string, raw: any): DailyCalendarEntry | null {
@@ -64,14 +67,14 @@ function mapEntry(key: string, raw: any): DailyCalendarEntry | null {
 
 /**
  * Subscribe to today's calendar entry in real time.
- * Matches by Hijri date across all dailyCalendar entries.
+ * Matches by Hijri date (day + month + year) across all dailyCalendar entries.
  * Falls back to Gregorian key match if no Hijri match found.
  */
 export function subscribeTodayCalendar(
   callback: (entry: DailyCalendarEntry | null) => void
 ): () => void {
   const calRef = ref(db, "dailyCalendar");
-  const hk = hijriKey();
+  const parts = getHijriParts();
   const gk = todayKey();
   const handler = (snapshot: DataSnapshot) => {
     const all = snapshot.val();
@@ -83,9 +86,12 @@ export function subscribeTodayCalendar(
     for (const [key, raw] of Object.entries(all)) {
       const entry = mapEntry(key, raw);
       if (!entry) continue;
-      if (entry.hijri && hk && entry.hijri.includes(hk.split(" ").slice(0, 2).join(" "))) {
-        match = entry;
-        break;
+      if (entry.hijri && parts.day && parts.month && parts.year) {
+        const norm = normalizeHijri(entry.hijri);
+        if (norm.includes(parts.day) && norm.includes(parts.month) && norm.includes(parts.year)) {
+          match = entry;
+          break;
+        }
       }
     }
     if (!match) {
@@ -105,13 +111,16 @@ export async function fetchTodayCalendar(): Promise<DailyCalendarEntry | null> {
   const snap = await get(ref(db, "dailyCalendar"));
   const all = snap.val();
   if (!all || typeof all !== "object") return null;
-  const hk = hijriKey();
+  const parts = getHijriParts();
   const gk = todayKey();
   for (const [key, raw] of Object.entries(all)) {
     const entry = mapEntry(key, raw);
     if (!entry) continue;
-    if (entry.hijri && hk && entry.hijri.includes(hk.split(" ").slice(0, 2).join(" "))) {
-      return entry;
+    if (entry.hijri && parts.day && parts.month && parts.year) {
+      const norm = normalizeHijri(entry.hijri);
+      if (norm.includes(parts.day) && norm.includes(parts.month) && norm.includes(parts.year)) {
+        return entry;
+      }
     }
   }
   const fallback = all[gk];
