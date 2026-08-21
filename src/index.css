@@ -93,14 +93,9 @@
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Dark Mode - use CSS variables instead of filter */
-.dark {
-  color-scheme: dark;
-}
-
+/* Dark Mode */
 .dark body {
-  background-color: #1a1a2e !important;
-  color: #ffffff !important;
+  filter: invert(1) hue-rotate(180deg);
 }
 
 /* Counter-invert images so they look normal in dark mode */
@@ -108,10 +103,7 @@
   filter: invert(1) hue-rotate(180deg);
 }
 
-/* Quran page images: invert to show white text on dark background */
-.dark .quran-page-img {
-  filter: invert(1) brightness(1.8) contrast(0.9);
-}
+/* Quran page images handled via inline style in component */
 
 /* Counter-invert colored elements */
 .dark [class*="bg-[#4A5D4E"],
