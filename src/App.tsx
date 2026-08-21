@@ -87,7 +87,7 @@ export default function App() {
     return () => { if (unsub) unsub(); };
   }, []);
 
-  // Apply saved font and dark mode on start
+    // Apply saved font and dark mode on start
   useEffect(() => {
     const font = getFontById(getSelectedFont());
     document.documentElement.style.setProperty("--app-font", font.family.split(",")[0].trim());
@@ -95,6 +95,9 @@ export default function App() {
     document.documentElement.style.setProperty("--app-font-size", `${settings.fontSize}px`);
     if (settings.darkMode) {
       document.documentElement.classList.add("dark");
+      document.body.style.filter = "invert(1) hue-rotate(180deg)";
+      document.body.style.backgroundColor = "#1a1a2e";
+      document.body.style.color = "#ffffff";
     }
   }, []);
 

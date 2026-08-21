@@ -83,6 +83,12 @@ export const SettingsView: React.FC<SettingsViewProps> = ({ showFeedback }) => {
     updateSetting("darkMode", dark);
     setDarkMode(dark);
     document.documentElement.classList.toggle("dark", dark);
+    // Directly apply filter to body for immediate effect
+    document.body.style.filter = dark ? "invert(1) hue-rotate(180deg)" : "none";
+    document.body.style.backgroundColor = dark ? "#1a1a2e" : "";
+    document.body.style.color = dark ? "#ffffff" : "";
+    haptic.light();
+    showFeedback(dark ? "تم تفعيل الوضع الداكن" : "تم إلغاء الوضع الداكن");
   };
 
   const applyHaptic = (v: boolean) => {
