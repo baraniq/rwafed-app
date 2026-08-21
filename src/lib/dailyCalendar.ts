@@ -41,25 +41,6 @@ export function todayKey(d: Date = new Date()): string {
   return `${y}-${m}-${day}`;
 }
 
-/** Get today's Hijri date parts: day number, month name, year */
-export function getHijriParts(d: Date = new Date()): { day: string; month: string; year: string } {
-  try {
-    const shifted = new Date(d);
-    shifted.setDate(shifted.getDate() - 1);
-    const day = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { day: "numeric" }).format(shifted);
-    const month = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { month: "long" }).format(shifted);
-    const year = new Intl.DateTimeFormat("ar-SA-u-ca-islamic-umalqura", { year: "numeric" }).format(shifted);
-    return { day, month, year };
-  } catch {
-    return { day: "", month: "", year: "" };
-  }
-}
-
-/** Normalize a hijri string by removing slashes, extra spaces, and "هـ" */
-function normalizeHijri(s: string): string {
-  return s.replace(/[\/\u002F]/g, " ").replace(/\s+/g, " ").replace(/هـ/g, "").trim();
-}
-
 function mapEntry(key: string, raw: any): DailyCalendarEntry | null {
   if (!raw || typeof raw !== "object") return null;
   return { date: key, ...raw } as DailyCalendarEntry;
@@ -67,62 +48,26 @@ function mapEntry(key: string, raw: any): DailyCalendarEntry | null {
 
 /**
  * Subscribe to today's calendar entry in real time.
- * Matches by Hijri date (day + month + year) across all dailyCalendar entries.
- * Falls back to Gregorian key match if no Hijri match found.
+ * Matches by Gregorian date key (YYYY-MM-DD) which is the key
+ * the channel publisher uses for each day's post.
+ * Returns an unsubscribe function. When today's entry is not published
+ * yet, the callback receives `null`.
  */
 export function subscribeTodayCalendar(
   callback: (entry: DailyCalendarEntry | null) => void
 ): () => void {
-  const calRef = ref(db, "dailyCalendar");
-  const parts = getHijriParts();
-  const gk = todayKey();
+  const todayRef = ref(db, `dailyCalendar/${todayKey()}`);
   const handler = (snapshot: DataSnapshot) => {
-    const all = snapshot.val();
-    if (!all || typeof all !== "object") {
-      callback(null);
-      return;
-    }
-    let match: DailyCalendarEntry | null = null;
-    for (const [key, raw] of Object.entries(all)) {
-      const entry = mapEntry(key, raw);
-      if (!entry) continue;
-      if (entry.hijri && parts.day && parts.month && parts.year) {
-        const norm = normalizeHijri(entry.hijri);
-        if (norm.includes(parts.day) && norm.includes(parts.month) && norm.includes(parts.year)) {
-          match = entry;
-          break;
-        }
-      }
-    }
-    if (!match) {
-      const fallback = all[gk];
-      if (fallback && typeof fallback === "object") {
-        match = mapEntry(gk, fallback);
-      }
-    }
-    callback(match);
+    const raw = snapshot.val();
+    callback(raw && typeof raw === "object" ? mapEntry(todayKey(), raw) : null);
   };
-  onValue(calRef, handler);
-  return () => off(calRef, "value", handler);
+  onValue(todayRef, handler);
+  return () => off(todayRef, "value", handler);
 }
 
 /** One-time fetch of today's calendar entry (null if not published yet). */
 export async function fetchTodayCalendar(): Promise<DailyCalendarEntry | null> {
-  const snap = await get(ref(db, "dailyCalendar"));
-  const all = snap.val();
-  if (!all || typeof all !== "object") return null;
-  const parts = getHijriParts();
-  const gk = todayKey();
-  for (const [key, raw] of Object.entries(all)) {
-    const entry = mapEntry(key, raw);
-    if (!entry) continue;
-    if (entry.hijri && parts.day && parts.month && parts.year) {
-      const norm = normalizeHijri(entry.hijri);
-      if (norm.includes(parts.day) && norm.includes(parts.month) && norm.includes(parts.year)) {
-        return entry;
-      }
-    }
-  }
-  const fallback = all[gk];
-  return fallback && typeof fallback === "object" ? mapEntry(gk, fallback) : null;
+  const snap = await get(ref(db, `dailyCalendar/${todayKey()}`));
+  const raw = snap.val();
+  return raw && typeof raw === "object" ? mapEntry(todayKey(), raw) : null;
 }
